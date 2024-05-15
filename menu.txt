@@ -1,0 +1,19 @@
+Home
+	Suchen
+		Buch
+			ISBN
+		Buchkopie
+			ID
+		Kunden
+			ID
+	Ausleihen
+		KundenID und BuchKopieID
+	Rückgabe
+		BuchKopieID und ist ausgeliehen
+	Verwaltung
+		Kunden löschen
+			keine Ausleihen und alles bezahlt
+		Buch löschen
+			Buchkopien gelöscht werden wenn nix ausgeliehen
+		Buchkopie löschen
+			nicht ausgeliehen
