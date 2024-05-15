@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public class Book {
     private final String isbn;
     private final String title;
-    private ArrayList<String> authors;
     private final int year;
     private final String city;
     private final String publisher;
     private final int edition;
+    private ArrayList<String> authors;
 
     public Book(String isbn, String title, int year, String city, String publisher, int edition, ArrayList<String> authors) {
         this.isbn = isbn;

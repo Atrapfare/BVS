@@ -13,13 +13,10 @@ public class Control {
     }
 
 
-
-
     public void run() {
         generateSamples();
         ui.startUI();
     }
-
 
 
     public void generateSamples() {
@@ -33,10 +30,10 @@ public class Control {
         storage.addBook(book2);
         storage.addBook(book3);
 
-        BookCopy bookCopy1 =  new BookCopy(12345, book1, "Shelf 1", new Date(), false, new Date());
-        BookCopy bookCopy2 =  new BookCopy(12362, book1, "Shelf 1", new Date(), true, new Date());
-        BookCopy bookCopy3 =  new BookCopy(12163, book2, "Shelf 2", new Date(), true, new Date());
-        BookCopy bookCopy4 =  new BookCopy(12546, book3, "Shelf 3", new Date(), false, new Date());
+        BookCopy bookCopy1 = new BookCopy(12345, book1, "Shelf 1", new Date(), false, new Date());
+        BookCopy bookCopy2 = new BookCopy(12362, book1, "Shelf 1", new Date(), true, new Date());
+        BookCopy bookCopy3 = new BookCopy(12163, book2, "Shelf 2", new Date(), true, new Date());
+        BookCopy bookCopy4 = new BookCopy(12546, book3, "Shelf 3", new Date(), false, new Date());
 
         storage.addBookCopy(bookCopy1);
         storage.addBookCopy(bookCopy2);
@@ -59,7 +56,7 @@ public class Control {
         storage.addCustomer(lana);
     }
 
-    
+
     public void deleteBook(String isbnInput) {
         try {
             Book foundBook = storage.searchBookByISBN(isbnInput);
