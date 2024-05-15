@@ -8,11 +8,22 @@ public class Customer {
     long id;
     String name;
     String firstName;
-    String adress;
+    String address;
     String zipCode;
     String city;
     boolean feesPayed;
-    ArrayList<Book> bookCopies = new ArrayList<>();
+    ArrayList<BookCopy> bookCopies;
+
+    public Customer(long id, String name, String firstName, String address, String zipCode, String city, boolean feesPayed, ArrayList<BookCopy> bookCopies) {
+        this.id = id;
+        this.name = name;
+        this.firstName = firstName;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.feesPayed = feesPayed;
+        this.bookCopies = bookCopies;
+    }
 
     public long getId() {
         return id;
@@ -26,8 +37,8 @@ public class Customer {
         return firstName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     public String getZipCode() {
@@ -42,7 +53,7 @@ public class Customer {
         return feesPayed;
     }
 
-    public ArrayList<Book> getBookCopies() {
+    public ArrayList<BookCopy> getBookCopies() {
         return bookCopies;
     }
 

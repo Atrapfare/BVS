@@ -4,13 +4,21 @@ import java.util.Date;
  * BookCopy
  */
 public class BookCopy {
-
     long id;
     Book book;
     String shelfLocation;
     Date addedToLibrary;
     boolean lent;
     Date lentDate;
+
+    public BookCopy(long id, Book book, String shelfLocation, Date addedToLibrary, boolean lent, Date lentDate) {
+        this.id = id;
+        this.book = book;
+        this.shelfLocation = shelfLocation;
+        this.addedToLibrary = addedToLibrary;
+        this.lent = lent;
+        this.lentDate = lentDate;
+    }
 
     public long getId() {
         return id;
@@ -28,12 +36,11 @@ public class BookCopy {
         return addedToLibrary;
     }
 
-    public boolean getLent() {
+    public boolean isLent() {
         return lent;
     }
 
     public Date getLentDate() {
         return lentDate;
     }
-
 }

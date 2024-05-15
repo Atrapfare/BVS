@@ -4,17 +4,15 @@ import java.util.ArrayList;
  * Book
  */
 public class Book {
-
     private final String isbn;
     private final String title;
+    private ArrayList<String> authors;
     private final int year;
     private final String city;
     private final String publisher;
     private final int edition;
-    private ArrayList<String> authors = new ArrayList<>();
 
     public Book(String isbn, String title, int year, String city, String publisher, int edition, ArrayList<String> authors) {
-
         this.isbn = isbn;
         this.title = title;
         this.year = year;
@@ -22,7 +20,6 @@ public class Book {
         this.publisher = publisher;
         this.edition = edition;
         this.authors = authors;
-
     }
 
     public String getIsbn() {
@@ -35,7 +32,6 @@ public class Book {
 
     public int getYear() {
         return year;
-
     }
 
     public String getCity() {
@@ -48,13 +44,9 @@ public class Book {
 
     public int getEdition() {
         return edition;
-
     }
 
     public ArrayList<String> getAuthors() {
-
         return authors;
     }
-
-
 }
