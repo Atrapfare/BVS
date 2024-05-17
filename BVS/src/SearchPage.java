@@ -1,12 +1,11 @@
-import java.util.Scanner;
-
-public class SearchPage extends Page{
-    public SearchPage(UI ui, PageName pageName, String pageUI, Scanner sc) {
-        super(ui, pageName, pageUI, sc);
+public class SearchPage extends Page {
+    public SearchPage(UI ui, PageName pageName, String pageUI) {
+        super(ui, pageName, pageUI);
     }
 
     @Override
     protected void pageJob() {
 
+        ui.setCurrentPage(ui.getHomePage());
     }
 }

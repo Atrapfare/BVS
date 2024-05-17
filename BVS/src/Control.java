@@ -7,7 +7,7 @@ public class Control {
     UI ui;
     Storage storage;
 
-    public Control(Storage storage) {
+    public Control() {
         this.ui = new UI(this);
         this.storage = new Storage(new ArrayList<Book>(), new ArrayList<BookCopy>(), new ArrayList<Customer>());
     }
@@ -45,7 +45,7 @@ public class Control {
         ArrayList<BookCopy> petersLend = new ArrayList<>();
         petersLend.add(bookCopy1);
         petersLend.add(bookCopy3);
-        Customer peter = new Customer(261523, "Kohler", "Peter", "Schwarzweg 49", "70199", "Vaihingen", false, petersLend);
+        Customer peter = new Customer(261263, "Kohler", "Peter", "Schwarzweg 49", "70199", "Vaihingen", false, petersLend);
         ArrayList<BookCopy> lanasLend = new ArrayList<>();
         petersLend.add(bookCopy2);
         petersLend.add(bookCopy4);
@@ -57,36 +57,61 @@ public class Control {
     }
 
 
-    public void deleteBook(String isbnInput) {
+    // CUSTOMER MANAGEMENT
+    public int deleteCustomer(long id) {
         try {
-            Book foundBook = storage.searchBookByISBN(isbnInput);
-            storage.deleteBook(foundBook);
+            Customer customer = storage.searchCustomerById(id);
+            if (customer.getNothingLend()) {
+                storage.deleteCustomer(customer);
+                return 0; // successfully deleted
+            }
         } catch (NoSuchElementException exception) {
-            ui.errorMessage(exception.getMessage());
+            return 2; // not found
         }
+        return 1; // not deleted due to customer still has lent books
     }
 
-    public void deleteBookCopy(String idInput) {
+    // BOOK MANAGEMENT
+    public int deleteBook(String isbn) {
         try {
-            long id = Long.parseLong(idInput);
-            BookCopy foundBookCopy = storage.searchBookCopyById(id);
-            storage.deleteBookCopy(foundBookCopy);
+            Book book = storage.searchBookByISBN(isbn);
+            ArrayList<BookCopy> bookCopies = storage.getBookCopies();
+            boolean readyForDeletion = true;
+            for (BookCopy bookCopy : bookCopies) {
+                if (bookCopy.getBook().getIsbn().equals(book.getIsbn())) {
+                    if (bookCopy.isLent()) {
+                        readyForDeletion = false;
+                    }
+                }
+            }
+            if (readyForDeletion) {
+                for (BookCopy bookCopy : bookCopies) {
+                    if (bookCopy.getBook().getIsbn().equals(book.getIsbn())) {
+                        storage.deleteBookCopy(bookCopy);
+                    }
+                }
+                storage.deleteBook(book);
+                return 0; // successfully deleted
+            }
         } catch (NoSuchElementException exception) {
-            ui.errorMessage(exception.getMessage());
-        } catch (NumberFormatException exception) {
-            ui.errorMessage("Invalid ID format!");
+            return 2; // not found
         }
+        return 1; // not deleted due to not ready for deletion
     }
 
-    public void deleteCustomer(String idInput) {
+    // BOOK COPY MANAGEMENT
+    public int deleteBookCopy(long id) {
         try {
-            long id = Long.parseLong(idInput);
-            Customer foundCustomer = storage.searchCustomerById(id);
-            storage.deleteCustomer(foundCustomer);
+            BookCopy bookCopy = storage.searchBookCopyById(id);
+            if (!bookCopy.isLent()) {
+                storage.deleteBookCopy(bookCopy);
+                return 0; // successfully deleted
+            }
         } catch (NoSuchElementException exception) {
-            ui.errorMessage(exception.getMessage());
-        } catch (NumberFormatException exception) {
-            ui.errorMessage("Invalid ID format!");
+            return 2; // not found
         }
+        return 1; // not deleted due to book copy still lend
     }
+
+
 }
