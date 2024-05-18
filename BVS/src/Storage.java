@@ -13,7 +13,7 @@ public class Storage {
         this.customers = customers;
     }
 
-    /*--------BOOK IMPLEMENTATION--------*/
+    /*--------BOOK--------*/
     public void addBook(Book book) {
         books.add(book);
     }
@@ -31,7 +31,11 @@ public class Storage {
         throw new NoSuchElementException("Book not found!");
     }
 
-    /*--------BOOK COPY IMPLEMENTATION--------*/
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+
+    /*--------BOOK COPY--------*/
     public void addBookCopy(BookCopy bookCopy) {
         bookCopies.add(bookCopy);
     }
@@ -49,8 +53,11 @@ public class Storage {
         throw new NoSuchElementException("BookCopy not found!");
     }
 
+    public ArrayList<BookCopy> getBookCopies() {
+        return bookCopies;
+    }
 
-    /*--------CUSTOMER IMPLEMENTATION--------*/
+    /*--------CUSTOMER--------*/
     public void addCustomer(Customer customer) {
         customers.add(customer);
     }
@@ -66,6 +73,10 @@ public class Storage {
             }
         }
         throw new NoSuchElementException("Customer not found!");
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
 
 }

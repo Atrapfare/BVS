@@ -57,5 +57,9 @@ public class Customer {
         return bookCopies;
     }
 
+    public boolean getNothingLend() {
+        return bookCopies.isEmpty();
+    }
+
 
 }
