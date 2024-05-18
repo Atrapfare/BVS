@@ -23,4 +23,8 @@ public abstract class Page {
     public PageName getPageName() {
         return pageName;
     }
+
+    protected void resetPage() {
+        ui.setCurrentPage(this);
+    }
 }

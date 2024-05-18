@@ -47,13 +47,12 @@ public class Control {
         petersLend.add(bookCopy3);
         Customer peter = new Customer(261263, "Kohler", "Peter", "Schwarzweg 49", "70199", "Vaihingen", false, petersLend);
         ArrayList<BookCopy> lanasLend = new ArrayList<>();
-        petersLend.add(bookCopy2);
         petersLend.add(bookCopy4);
         Customer lana = new Customer(234421, "Möhrke", "Lana", "Korelliweg 34", "70199", "Vaihingen", false, lanasLend);
 
-        storage.addCustomer(lena);
-        storage.addCustomer(peter);
-        storage.addCustomer(lana);
+        storage.addCustomer(lena); // lena still has lent book copies
+        storage.addCustomer(peter); // peter still has lent book copies
+        storage.addCustomer(lana); // lana doesn't have lent any book copies
     }
 
 

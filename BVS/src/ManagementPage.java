@@ -54,6 +54,7 @@ public class ManagementPage extends Page {
                 break;
             case 2:
                 ui.setMessage("#2 Book Copy not found!");
+                this.resetPage();
                 break;
         }
     }
@@ -71,6 +72,7 @@ public class ManagementPage extends Page {
                 break;
             case 2:
                 ui.setMessage("#2 Book not found!");
+                this.resetPage();
                 break;
         }
     }
@@ -89,6 +91,7 @@ public class ManagementPage extends Page {
                 break;
             case 2:
                 ui.setMessage("#2: Customer not found!");
+                this.resetPage();
                 break;
         }
     }
