@@ -61,5 +61,7 @@ public class Customer {
         return bookCopies.isEmpty();
     }
 
-
+    public void lendBookCopy(BookCopy bookCopy) {
+        bookCopies.add(bookCopy);
+    }
 }

@@ -1,36 +1,36 @@
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ManagementPageTest {
 
-    private static Control control;
+    private Control control;
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         control = new Control();
-        control.run();
+        control.generateSamples();
     }
 
     @Test
     public void deleteCustomerTest() {
-        assertEquals(control.deleteCustomer(261523), 0); // success
-        assertEquals(control.deleteCustomer(261263), 1); // not possible
-        assertEquals(control.deleteCustomer(123456), 2); // not found
+        assertEquals(0, control.deleteCustomer(54321)); // success
+        assertEquals(1, control.deleteCustomer(12345)); // not possible
+        assertEquals(2, control.deleteCustomer(97654)); // not found
     }
 
     @Test
     public void deleteBookCopyTest() {
-        assertEquals(control.deleteBookCopy(12362), 0); // success
-        assertEquals(control.deleteBookCopy(12345), 1); // not possible
-        assertEquals(control.deleteBookCopy(98765), 2); // not found
+        assertEquals(0, control.deleteBookCopy(13243)); // success
+        assertEquals(1, control.deleteBookCopy(12345)); // not possible
+        assertEquals(2, control.deleteBookCopy(98765)); // not found
     }
 
     @Test
     public void deleteBookTest() {
-        assertEquals(control.deleteBook("123-456-789"), 0); // success
-        assertEquals(control.deleteBook("789-456-123"), 1); // not possible
-        assertEquals(control.deleteBook("123-123-123"), 2); // not found
+        assertEquals(0, control.deleteBook("789-456-123")); // success
+        assertEquals(1, control.deleteBook("123-789-456")); // not possible
+        assertEquals(2, control.deleteBook("123-123-123")); // not found
     }
-
-
 }

@@ -43,4 +43,8 @@ public class BookCopy {
     public Date getLentDate() {
         return lentDate;
     }
+
+    public void setLend(boolean status) {
+        this.lent = status;
+    }
 }

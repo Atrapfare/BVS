@@ -34,10 +34,17 @@ public class ManagementPage extends Page {
                         break;
                 }
             } catch (NumberFormatException exception) {
+                if (input.equals("Home") || input.equals("home") || input.equals("HOME")) {
+                    goHome();
+                }
                 ui.errorMessage("Invalid Input!");
                 this.selectAction();
             }
         }
+    }
+
+    private void goHome() {
+        ui.setCurrentPage(ui.getHomePage());
     }
 
     private void deleteBookCopy() {

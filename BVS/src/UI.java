@@ -35,6 +35,11 @@ public class UI {
 
     public void setMessage(String message) {
         System.out.println(message);
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            errorMessage("Something went wrong!");
+        }
     }
 
     public final void clearConsole() {
