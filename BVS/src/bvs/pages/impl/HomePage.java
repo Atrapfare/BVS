@@ -1,3 +1,9 @@
+package bvs.pages.impl;
+
+import bvs.pages.Page;
+import bvs.pages.PageName;
+import bvs.ui.UI;
+
 public class HomePage extends Page {
 
     public HomePage(UI ui, PageName pageName, String pageUI) {

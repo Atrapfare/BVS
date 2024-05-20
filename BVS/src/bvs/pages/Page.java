@@ -1,3 +1,7 @@
+package bvs.pages;
+
+import bvs.ui.UI;
+
 public abstract class Page {
     protected UI ui;
     protected PageName pageName;
@@ -9,7 +13,7 @@ public abstract class Page {
         this.pageUI = pageUI;
     }
 
-    protected void activatePage() {
+    public void activatePage() {
         ui.setMessage(this.getPageUI());
         this.pageJob();
     }

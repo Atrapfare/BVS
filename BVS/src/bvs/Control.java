@@ -1,3 +1,11 @@
+package bvs;
+
+import bvs.objects.Book;
+import bvs.objects.BookCopy;
+import bvs.objects.Customer;
+import bvs.storage.Storage;
+import bvs.ui.UI;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -21,9 +29,9 @@ public class Control {
     public void generateSamples() {
         ArrayList<String> authors = new ArrayList<>(); // Sample list for authors
 
-        Book book1 = new Book("123-456-789", "Sample Book 1", 1978, "Stuttgart", "Klett", 1, authors);
-        Book book2 = new Book("123-789-456", "Sample Book 2", 1980, "Berlin", "Duden", 2, authors);
-        Book book3 = new Book("789-456-123", "Sample Book 3", 2003, "Filderstadt", "Kosmos", 3, authors);
+        Book book1 = new Book("123-456-789", "Sample io.github.bvs.objects.Book 1", 1978, "Stuttgart", "Klett", 1, authors);
+        Book book2 = new Book("123-789-456", "Sample io.github.bvs.objects.Book 2", 1980, "Berlin", "Duden", 2, authors);
+        Book book3 = new Book("789-456-123", "Sample io.github.bvs.objects.Book 3", 2003, "Filderstadt", "Kosmos", 3, authors);
 
         storage.addBook(book1);
         storage.addBook(book2);
