@@ -60,13 +60,13 @@ public class ManagementPage extends Page {
         int resultBookCopyDeletion = ui.deleteBookCopy(bookCopyId);
         switch (resultBookCopyDeletion) {
             case 0:
-                ui.setMessage("#0 io.github.bvs.objects.Book Copy deleted successfully!");
+                ui.setMessage("#0 Book Copy deleted successfully!");
                 break;
             case 1:
-                ui.setMessage("#1 io.github.bvs.objects.Book Copy is still lend. Cannot be deleted!");
+                ui.setMessage("#1 Book Copy is still lend. Cannot be deleted!");
                 break;
             case 2:
-                ui.setMessage("#2 io.github.bvs.objects.Book Copy not found!");
+                ui.setMessage("#2 Book Copy not found!");
                 this.resetPage();
                 break;
         }
@@ -78,13 +78,13 @@ public class ManagementPage extends Page {
         int resultBookDeletion = ui.deleteBook(bookIsbnInput);
         switch (resultBookDeletion) {
             case 0:
-                ui.setMessage("#0: io.github.bvs.objects.Book and all related book copies deleted successfully!");
+                ui.setMessage("#0: Book and all related book copies deleted successfully!");
                 break;
             case 1:
-                ui.setMessage("#1 Some io.github.bvs.objects.Book copies are still lend. Cannot delete book!");
+                ui.setMessage("#1 Book copies are still lend. Cannot delete book!");
                 break;
             case 2:
-                ui.setMessage("#2 io.github.bvs.objects.Book not found!");
+                ui.setMessage("#2 Book not found!");
                 this.resetPage();
                 break;
         }
@@ -97,13 +97,13 @@ public class ManagementPage extends Page {
         int resultCustomerDeletion = ui.deleteCustomer(customerId);
         switch (resultCustomerDeletion) {
             case 0:
-                ui.setMessage("#0: io.github.bvs.objects.Customer deleted successfully!");
+                ui.setMessage("#0: Customer deleted successfully!");
                 break;
             case 1:
-                ui.setMessage("#1: io.github.bvs.objects.Customer has lent books. Cannot be deleted!");
+                ui.setMessage("#1: Customer has lent books. Cannot be deleted!");
                 break;
             case 2:
-                ui.setMessage("#2: io.github.bvs.objects.Customer not found!");
+                ui.setMessage("#2: Customer not found!");
                 this.resetPage();
                 break;
         }
